@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sginup.css">
+    <script>
+        function validate_password() {
+ 
+            var pass = document.getElementById('pass').value;
+            var confirm_pass = document.getElementById('confirm_pass').value;
+            if (pass != confirm_pass) {
+                document.getElementById('wrong_pass_alert').style.color = 'red';
+                document.getElementById('wrong_pass_alert').innerHTML
+                  = '☒ Use same password';
+                document.getElementById('create').disabled = true;
+                document.getElementById('create').style.opacity = (0.4);
+            } else {
+                document.getElementById('wrong_pass_alert').style.color = 'green';
+                document.getElementById('wrong_pass_alert').innerHTML =
+                    '🗹 Password Matched';
+                document.getElementById('create').disabled = false;
+                document.getElementById('create').style.opacity = (1);
+            }
+        }
+ 
+        function wrong_pass_alert() {
+            if (document.getElementById('pass').value != "" &&
+                document.getElementById('confirm_pass').value != "") {
+                alert("Your response is submitted");
+            } else {
+                alert("Please fill all the fields");
+            }
+        }
+    </script>
+    
+
+</head>
+
+<body>
+        <div class="container">
+            <form onsubmit="return validate_password()" action="../">
+                <img src="./images/LogoTD4-02.png" alt="centered image">
+                <br><br>
+                <h3 style="text-align:center">Sign up</h3>
+                <label id="aa" for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+    
+                <label id="aa" for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" id="pass" name="pass" required>
+
+                <label id="aa" for="psw"><b>Confirm Password</b></label>
+                <input type="password" placeholder="Confirm Password" id="confirm_pass" name="confirm_pass" required onkeyup="validate_password()">
+
+                
+            
+            
+            
+                <button id="create"
+                        class="submit_btn"
+                        onclick="wrong_pass_alert()">
+                    Submit
+                </button>
+                <span id="wrong_pass_alert"></span>
+            
+
+            </form>
+        </div>
+    </body>
+    
+    </html>

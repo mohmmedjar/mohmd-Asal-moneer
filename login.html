@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=., initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+
+    <script>
+        var attempt = 3; // Variable to count number of attempts.
+    
+        function validate() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+    
+            if (username == "mohammad" && password == "mohammad123" || username == "asal" && password == "asal123" || username == "muneer" && password == "muneer123") {
+                alert("Login successfully");
+                window.location = "index.html";
+                return true;
+            }
+            else {
+                attempt--;// Decrementing by one.
+                alert("You have left " + attempt + " attempt;");
+                // Disabling fields after 3 attempts.
+                if (attempt == 0) {
+                    document.getElementById("username").disabled = true;
+                    document.getElementById("password").disabled = true;
+                    document.getElementById("submit").disabled = true;
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <form >
+            <img src="./images/LogoTD4.png" alt="centered image">
+            <br><br>
+            <h3 style="text-align:center">Login</h3>
+            <label id="aa" for="uname"><b>Username</b></label>
+            <input id="username" type="text" placeholder="Enter Username" name="username" required>
+
+            <label id="aa" for="psw"><b>Password</b></label>
+            <input id="password" type="password" placeholder="Enter Password" name="password" required>
+
+            <button id="submit" type="submit" onclick="validate()">Login</button>
+            <label id="aa">
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+            <span><b class="note"><br>Note : </b>Enter username and password. <br><b class="valid"></b><br></span>
+        </form>
+         
+    </div>
+</body>
+
+</html>
